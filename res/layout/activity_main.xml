@@ -8,32 +8,83 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.devicedetector.MainActivity" >
 
-    <TextView
-        android:id="@+id/outputText"
+    <RadioGroup
+        android:id="@+id/dTypeRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/deviceTypeQuestion"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="208dp"
-        android:text="No devices found" />
+        android:orientation="horizontal" >
 
-    <EditText
-        android:id="@+id/inputText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/outputText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="72dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+        <RadioButton
+            android:id="@+id/dTypeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="All Devices" />
+
+        <RadioButton
+            android:id="@+id/dTypePaired"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Only Paired Devices" />
+    </RadioGroup>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_alignLeft="@+id/deviceTypeQuestion"
+        android:layout_below="@+id/inputText"
+        android:layout_marginTop="118dp" >
+    </ScrollView>
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/outputText"
         android:layout_alignRight="@+id/inputText"
-        android:layout_marginBottom="18dp"
+        android:layout_below="@+id/inputText"
         android:text="Find Bluetooth Devices" />
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/deviceTypeQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/dTypeRadioGroup"
+        android:text="Which devices do you want to see?"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/scrollView1"
+        android:layout_below="@+id/submitButton"
+        android:layout_marginTop="21dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="208dp"
+            android:text="No devices found" />
+    </LinearLayout>
 
 </RelativeLayout>
